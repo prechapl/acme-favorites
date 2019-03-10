@@ -1,16 +1,7 @@
-const express = require('express');
-const app = express();
-const path = require('path');
-// const conn = require('./db/conn')
+const app = require('./app');
 const syncAndSeed = require('./db/index');
 
 const port = process.env.PORT || 3000;
-
-app.get('/app.js', (req, res, next) =>
-  res.sendFile(path.join(__dirname, 'dist', 'main.js')));
-
-app.get('/', (req, res, next) =>
-  res.sendFile(path.join(__dirname, 'index.html')));
 
 syncAndSeed()
   .then(() => {
@@ -19,5 +10,3 @@ syncAndSeed()
   .catch(e => {
     console.log(e);
   });
-
-module.exports = app;
