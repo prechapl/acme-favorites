@@ -1,5 +1,6 @@
 module.exports = {
   devtool: 'eval',
+  mode: 'development',
   module: {
     rules: [
       {

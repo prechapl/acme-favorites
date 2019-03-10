@@ -1,3 +1,8 @@
-// Favorite belongs to User
-// Favorite belongs to Thing
-// Favorite also has a rank
+const Sequelize = require('sequelize');
+const conn = require('./conn');
+
+const Favorite = conn.define('favorite', {
+  rank: Sequelize.INTEGER
+});
+
+module.exports = Favorite;
