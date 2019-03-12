@@ -3,6 +3,7 @@ const app = express();
 const path = require('path');
 const User = require('./db/User');
 const Thing = require('./db/Thing');
+const Favorite = require('./db/Thing');
 
 app.get('/app.js', (req, res, next) =>
   res.sendFile(path.join(__dirname, 'dist', 'main.js')));
@@ -21,4 +22,11 @@ app.get('/things', (req, res, next) => {
     .then(things => res.send(things))
     .catch(next);
 });
+
+app.get('/favorites', (req, res, next) => {
+  Favorite.findAll()
+    .then(favs => res.send(favs))
+    .catch(next);
+});
+
 module.exports = app;
