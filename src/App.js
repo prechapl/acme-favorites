@@ -31,11 +31,11 @@ class App extends Component {
   }
 
   render() {
-    console.log('props', this.props.children);
+    // console.log('props', this.props.children);
     const users = this.state.users;
     const things = this.state.things;
     const favorites = this.state.favorites;
-    console.log('favs ', favorites);
+    // console.log('favs ', favorites);
 
     return (
       <Router>
@@ -50,7 +50,9 @@ class App extends Component {
           />
           <Route
             path="/things/:id?"
-            render={() => <Things things={things} />}
+            render={() => (
+              <Things things={things} favorites={favorites} users={users} />
+            )}
           />
         </div>
       </Router>

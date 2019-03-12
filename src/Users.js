@@ -1,8 +1,6 @@
 import React from 'react';
 
 const Users = ({ users, things, favorites }) => {
-  console.log('things ', things);
-
   return (
     <div>
       <ul>
