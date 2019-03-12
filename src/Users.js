@@ -8,7 +8,7 @@ const Users = ({ users, things, favorites }) => {
           let userIdx = user.id;
           return (
             <li key={userIdx}>
-              {user.name}
+              <dt>{user.name}</dt>
               <ul>
                 {favorites
                   .filter(fav => fav.userId === user.id)

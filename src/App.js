@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { HashRouter as Router, Route } from 'react-router-dom';
-import Users from './Users';
-import Things from './Things';
-import Nav from './Nav';
-import axios from 'axios';
+import React, { Component } from "react";
+import { HashRouter as Router, Route } from "react-router-dom";
+import Users from "./Users";
+import Things from "./Things";
+import Nav from "./Nav";
+import axios from "axios";
 
 class App extends Component {
   constructor(props) {
@@ -17,7 +17,7 @@ class App extends Component {
 
   componentDidMount() {
     axios
-      .all([axios.get('/users'), axios.get('/things'), axios.get('/favorites')])
+      .all([axios.get("/users"), axios.get("/things"), axios.get("/favorites")])
       .then(
         axios.spread((userRes, thingRes, favRes) => {
           this.setState({
@@ -31,11 +31,9 @@ class App extends Component {
   }
 
   render() {
-    // console.log('props', this.props.children);
     const users = this.state.users;
     const things = this.state.things;
     const favorites = this.state.favorites;
-    // console.log('favs ', favorites);
 
     return (
       <Router>
