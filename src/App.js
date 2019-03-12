@@ -6,8 +6,8 @@ import Nav from './Nav';
 import axios from 'axios';
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       users: [],
       things: [],
@@ -31,6 +31,7 @@ class App extends Component {
   }
 
   render() {
+    console.log('props', this.props.children);
     const users = this.state.users;
     const things = this.state.things;
     const favorites = this.state.favorites;
@@ -43,13 +44,8 @@ class App extends Component {
           <Route component={Nav} />
           <Route
             path="/users/:id?"
-            render={match => (
-              <Users
-                users={users}
-                things={things}
-                favorites={favorites}
-                match={match}
-              />
+            render={() => (
+              <Users users={users} things={things} favorites={favorites} />
             )}
           />
           <Route

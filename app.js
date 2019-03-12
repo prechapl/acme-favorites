@@ -3,7 +3,7 @@ const app = express();
 const path = require('path');
 const User = require('./db/User');
 const Thing = require('./db/Thing');
-const Favorite = require('./db/Thing');
+const Favorite = require('./db/Favorite');
 
 app.get('/app.js', (req, res, next) =>
   res.sendFile(path.join(__dirname, 'dist', 'main.js')));
